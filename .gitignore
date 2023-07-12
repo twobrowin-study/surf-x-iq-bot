@@ -1,6 +1,6 @@
 **/serviceacc.json
 **/telegram.txt
 **/__pycache__
-**/env
+**/.env
 **/hosts.ini
 **/secrets.yaml

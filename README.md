@@ -6,7 +6,7 @@
 
 ## Запуск приложения
 
-`eval $(tr "\n" "\t" < env) python main.py` в директории `python`
+`python main.py` в директории `python`
 
 Для запуска в режиме отладки могут использоваться флаги `debug`, `--debug`, `-D`.
 

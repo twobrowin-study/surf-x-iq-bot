@@ -1,9 +1,10 @@
 FROM python:3.11-slim-buster
 
-ENV BOT_TOKEN ''
-ENV SHEETS_ACC_JSON ''
-ENV SHEETS_LINK ''
-ENV SWITCH_UPDATE_TIME ''
+ENV DOCKER_RUN           'true'
+ENV BOT_TOKEN            ''
+ENV SHEETS_ACC_JSON      ''
+ENV SHEETS_LINK          ''
+ENV SWITCH_UPDATE_TIME   ''
 ENV SETTINGS_UPDATE_TIME ''
 
 WORKDIR /python-docker
