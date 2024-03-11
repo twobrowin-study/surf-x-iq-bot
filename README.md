@@ -1,4 +1,4 @@
-# Универсальный бот - библиотека и человек
+# Бот помошник записи данных для Surf x IQ
 
 [Пример таблицы - только на чтение](https://docs.google.com/spreadsheets/d/1dkpFEvOqWvVM_cJAnKvaQ0Ne8MmGPjy33cvPeeSwi-o/edit?usp=sharing)
 
