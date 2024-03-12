@@ -1,6 +1,6 @@
 from datetime import datetime
 from telegram import (
-    Update,
+    Update
 )
 from telegram.constants import ParseMode
 from telegram.ext import ContextTypes
@@ -11,6 +11,8 @@ from spreadsheetbot.sheets.registration import Registration
 from spreadsheetbot.sheets.groups import Groups
 from spreadsheetbot.sheets.report import Report
 from spreadsheetbot.sheets.keyboard import Keyboard
+
+from spreadsheetbot.basic.log import Log
 
 from spreadsheetbot.sheets.users import UsersAdapterClass
 
@@ -66,6 +68,22 @@ async def proceed_registration_handler(self: UsersAdapterClass, update: Update, 
         Groups.send_to_all_admin_groups(
             context.application,
             Report.currently_active_users_template.format(count=count),
+            ParseMode.MARKDOWN
+        )
+    
+    if last_survey_state:
+        Log.info(f"Starting update of whole df {Report.name} to send after last survey state")
+        Report.whole_mutex = True
+        await Report._update_df()
+        Report.whole_mutex = False
+
+        Log.info(f"Updated whole df {Report.name} to send after last survey state")
+        await Report._post_update()
+
+        Log.info(f"Sending {Report.name} to all admins after last survey state")
+        Groups.send_to_all_admin_groups(
+            context.application,
+            Report.markdown,
             ParseMode.MARKDOWN
         )
 UsersAdapterClass.proceed_registration_handler = proceed_registration_handler
