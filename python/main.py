@@ -3,8 +3,10 @@ from spreadsheetbot import SpreadSheetBot, Log, DEBUG
 
 from telegram.ext import Application
 
+import abstract
 import registration
 import users
+import reports
 from survey import Survey
 
 if "DOCKER_RUN" in os.environ:
